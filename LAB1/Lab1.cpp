@@ -13,7 +13,7 @@ static void* thread1_start(void* arg)
         sleep(1);
     }
     int* retval_1 = new int;
-    *retval_1 = 5;
+    *retval_1 = 20;
     std::cout << "\nTHREAD 2 FINISHING" << std::endl;
     pthread_exit(retval_1);
 }
@@ -28,7 +28,7 @@ static void* thread2_start(void* arg)
         sleep(1);
     }
     int* retval_2 = new int;
-    *retval_2 = 10;
+    *retval_2 = 15;
     std::cout << "\nTHREAD 2 FINISHING" << std::endl;
     pthread_exit(retval_2);
 }
