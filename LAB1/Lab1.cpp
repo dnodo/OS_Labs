@@ -14,7 +14,14 @@ static void* thread1_start(void* arg)
     }
     int* retval_1 = new int;
     *retval_1 = 5;
-    std::cout << "\nTHREAD 2 FINISHING" << std::endl;
+    int n;
+    std::cout << "enter number";
+    std::cin >> n;
+    for (int i = 0; i < n; i++)
+    {
+    std::cout << i;
+    }
+    std::cout << "\nTHREAD 1 FINISHING" << std::endl;
     pthread_exit(retval_1);
 }
 
