@@ -6,7 +6,7 @@
 void* task1(void*N)
 {
   int *n = (int*)n;
-  for (int i = 0; i < n; i++)
+  for (int i = 0; i < *n; i++)
     {
       std::cout << i;
     }
