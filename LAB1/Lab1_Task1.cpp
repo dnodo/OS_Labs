@@ -3,22 +3,40 @@
 #include <unistd.h>
 #include <stdio.h>
 
-void* task1(void*N)
+
+typedef struct thread_data {
+    int num;
+    int* res_arr;
+
+} thread_data;
+
+void* task1(void* arg)
 {
-  int *n = (int*)n;
-  for (int i = 0; i < *n; i++)
+    thread_data *tdata = (thread_data *)arg;
+
+    for(int i = 0; i <= tdata->num; i++)
     {
-      std::cout << i;
+        tdata->res_arr[i] = i;
     }
-  return;
+
+    pthread_exit(NULL);
 }
 
 int main()
 {
   pthread_t ID1;
-  int N;
-  std::cin >> N;
-  pthread_create (&ID1 , NULL , task1 , NULL);
-  int* task1_return;  
-  delete(task1_return);
+  int ret;
+  std::cin >> ret;
+  thread_data tdata;
+  tdata.num = ret;
+  tdata.res_arr = new int[ret+1];
+  pthread_create (&ID1 , NULL , task1 , (void* )&tdata);
+  pthread_join(ID1, NULL);
+
+  for(int i = 0; i <= ret; i++)
+  {
+    std::cout << tdata.res_arr[i];
+  }
+
+  return 0;
 }
